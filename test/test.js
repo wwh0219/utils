@@ -16,8 +16,8 @@ const a  = {
     }
   }
 }
-describe('Array', function () {
-  describe('deepCopy', function () {
+describe('util测试', function () {
+  describe('util测试', function () {
     it('深拷贝测试', function () {
       assert.equal(JSON.stringify(util.deepCopy(a)),JSON.stringify(a));
     });
