@@ -55,7 +55,7 @@ function deepEqual(obj1, obj2) {//JSON对象深度对比
   }
   return result
 }
-function deepEqual(data, id,chilStr='children'){//树形结构根据id查找节点数据
+function findNode(data, id,chilStr='children'){//树形结构根据id查找节点数据
   let index = [];
   let target;
   let childrenList;
