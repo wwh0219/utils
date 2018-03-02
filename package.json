@@ -1,0 +1,15 @@
+{
+  "name": "utils",
+  "version": "0.0.1",
+  "description": "my-utils",
+  "main": "util.js",
+  "repository": "https://github.com/gaarashura/utils.git",
+  "author": "wh",
+  "license": "MIT",
+  "scripts": {
+    "test":"node ./node_modules/mocha/bin/mocha"
+  },
+  "dependencies": {
+    "mocha": "^5.0.1"
+  }
+}

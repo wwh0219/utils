@@ -4,7 +4,7 @@ function deepCopy(source) {//对象深拷贝
     target = [];
     source.forEach(item => {
       if (typeof item == 'object') {
-        target.push(deepCopy(source[prop]));
+        target.push(deepCopy(item));
       } else {
         target.push(item);
       }
@@ -26,7 +26,16 @@ function deepCopy(source) {//对象深拷贝
 
 function arrayUnique(arr) {//Array<String|Number>去重
   let result = [];
-  arr = arr.sort();
+  let str=[];
+  let num=[]
+  arr.forEach(item=>{
+    if(isNaN(item)){
+      str.push(item)
+    }else{
+      num.push(item)
+    }
+  })
+  arr = num.sort((a, b) => a - b).concat(str.sort());
   arr.forEach((a, i) => {
     if (result.includes(a)) return;
     result.push(a)
@@ -76,4 +85,26 @@ function findNode(data, id,chilStr='children'){//树形结构根据id查找节�
   }
   return target
 };
+exports.deepCopy = deepCopy;
+exports.arrayUnique = arrayUnique;
+exports.deepEqual = deepEqual;
+exports.findNode = findNode;
+const a = {
+  a: [1, 2, 3, 4, 5],
+  b: {
+    b1: [3, 2, 1],
+    b2: {
+      b21: {
+        b211: [3, 3, 4, 5, {
+          x: 'zz',
+          l: {
+            qq: 'zzzz'
+          }
+        }]
+      }
+    }
+  }
+}
+deepCopy(a)
+
 
