@@ -64,7 +64,8 @@ function deepEqual(obj1, obj2) {//JSON对象深度对比
   }
   return result
 }
-function findNode(data, id,chilStr='children'){//树形结构根据id查找节点数据
+function findNode(data, id, count = 0, childStr='children'){//树形结构根据id查找节点数据
+  count++
   let index = [];
   let target;
   let childrenList;
@@ -79,7 +80,10 @@ function findNode(data, id,chilStr='children'){//树形结构根据id查找节�
       if (children.id == id) {
         return target = children;
       } else if (children[childStr] && children[childStr].length) {
-        target = findNode(children, id);
+        target = findNode(children, id,count);
+        if (target.id == id){
+          return target
+        };
       }
     }
   }
