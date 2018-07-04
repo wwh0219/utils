@@ -1,5 +1,5 @@
 const assert = require('assert');
-const util = require('../util');
+const util = require('../lib/index.cjs');
 const a = {
   a: [1, 2, 3, 4, 5],
   b: {
@@ -29,7 +29,7 @@ const db = [
       "url": "/lawFirmManage"
     },
     "checked": false,
-    "children": [],
+    "child": [],
     "iconCls": "",
     "id": "766812ef71d6418a8409ab1d9efd4507",
     "state": "open",
@@ -47,7 +47,7 @@ const db = [
       "url": "/lawyerManage"
     },
     "checked": false,
-    "children": [],
+    "child": [],
     "iconCls": "",
     "id": "171600a0d46a44b1a8c78552794229ad",
     "state": "open",
@@ -65,7 +65,7 @@ const db = [
       "url": "/trainManage/offlineTrain"
     },
     "checked": false,
-    "children": [],
+    "child": [],
     "iconCls": "",
     "id": "a7c1de5cd7a44961af798567451308d3",
     "state": "open",
@@ -83,7 +83,7 @@ const db = [
       "url": "/video"
     },
     "checked": false,
-    "children": [],
+    "child": [],
     "iconCls": "",
     "id": "e30445cf7cad48daa1f3ca80ac1c39f5",
     "state": "open",
@@ -101,7 +101,7 @@ const db = [
       "url": "/systemManage"
     },
     "checked": false,
-    "children": [
+    "child": [
       {
         "attributes": {
           "id": "4a3cdf4df2484d29ab6e5f0e01e2d858",
@@ -114,7 +114,7 @@ const db = [
           "url": "/systemManage/sysRole"
         },
         "checked": false,
-        "children": [],
+        "child": [],
         "iconCls": "",
         "id": "4a3cdf4df2484d29ab6e5f0e01e2d858",
         "state": "open",
@@ -132,9 +132,9 @@ const db = [
           "url": "/systemManage/sysPermission"
         },
         "checked": false,
-        "children": [{
+        "child": [{
           id: 'zzzz',
-          children: [
+          child: [
             {
               id: 'very_deep',
               str:'its deep'
@@ -216,7 +216,7 @@ describe('util测试', function () {
       assert.equal(util.deepEqual(a, c), false);
     });
     it('节点查找', () => {
-      const node = util.findNode(db, 'very_deep');
+      const node = util.findNode(db, 'very_deep','child');
       assert.deepEqual(node, {
         id: 'very_deep',
         str: 'its deep'
