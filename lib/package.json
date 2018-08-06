@@ -1,6 +1,6 @@
 {
   "name": "@qwert0219/utils",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "my-utils",
   "main": "util.js",
   "repository": "https://github.com/gaarashura/utils.git",

@@ -160,8 +160,11 @@ describe('util测试', function () {
     });
     it('数组去重', function () {
       const arr = [1, 2, 3, 4, 1, 2, 3, 1, 3, 31, 1, 13, 31, 'z', 'x', 'z', 'z', 'z', 'z']
-      util.arrayUnique(arr)
-      assert.equal(JSON.stringify(util.arrayUnique(arr)), JSON.stringify([1, 2, 3, 4, 13, 31, 'x', 'z']));
+      assert.deepEqual(util.arrayUnique(arr), [1, 2, 3, 4, 13, 31, 'x', 'z']);
+    });
+    it('数组根据字段去重', function () {
+      const arr = [{id:1},{id:1},{id:2},{id:2},{id:3}]
+      assert.deepEqual(util.uniqueArrayByField(arr), [{id:1},{id:2},{id:3}]);
     });
     it('JSON深度对比', function () {
       const a = {
@@ -216,7 +219,12 @@ describe('util测试', function () {
       assert.equal(util.deepEqual(a, c), false);
     });
     it('节点查找', () => {
-      const node = util.findNode(db, 'very_deep','child');
+      const node = util.findNode({
+        data:db,
+        key:'very_deep',
+        childField:'child'
+      });
+      console.log(node)
       assert.deepEqual(node, {
         id: 'very_deep',
         str: 'its deep'
