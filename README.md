@@ -1,10 +1,10 @@
 # utils
 
-自用帮助函数
+帮助函数
 
 #使用
 ```typescript
-import {arrayUnique,deepCopy,findNode,deepEqual} from '@qwert0219/utils'
+import {arrayUnique,deepCopy,findNode,deepEqual} from '@@sm00th-cr1m1n4l/utils'
 
 arrayUnique:(arr:array)=>Array//数组去重
 deepCopy:(arr:any)=>any//深度拷贝
